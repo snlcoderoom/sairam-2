@@ -1,0 +1,80 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+</head>
+
+<body style="background: var(--bs-gray-200);">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: var(--bs-gray-500); margin-bottom:30px">
+        <div class="container"><a class="navbar-brand" href="#"><strong>SIVEM EVENTS SEARCH RESULT</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'sivam_events_page' %}" style="background: var(--bs-primary);border-style: none;border-color: var(--bs-red);color: var(--bs-gray-100);"><strong>Sivam Events</strong></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+<!--                        <th>Report Submitted Date</th>-->
+
+                        <th>Date of the Activity </th>
+                        <th>Name of the Activity </th>
+<!--                        <th>Submitted by</th>-->
+                        <th>Actions</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for row in search_records %}
+                    <tr>
+                        <td>{{row.date_of_activity}}</td>
+                        <td>{{row.name_of_the_activity}}</td>
+
+
+                        <td><a class="btn btn-primary btn-sm" role="button" style="margin-right: 5px;margin-bottom: 5px;" href="update_func/{{row.id}}">Update</a>
+                            <a class="btn btn-primary btn-sm" role="button" style="margin-right: 5px;margin-bottom: 5px;" href="delete_func/{{row.id}}">Delete</a>
+                            <a class="btn btn-primary btn-sm" role="button" style="margin-right: 5px;margin-bottom: 5px;" href="individual.html">download pdf</a></td>
+                        <td></td>
+                    </tr>
+                 {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br/><br/>
+    </div>
+
+    <div class = "container">
+        <nav>
+        <ul class="pagination" style="color: #030d18;">
+            {% for i in paginator.page_range %}
+            <li class="page-item {% if i == page_number %} active {% endif %}">
+                <a class="page-link" href="?page={{i}}"> {{i}}</a>
+
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+</html>

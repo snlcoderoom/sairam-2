@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Recent Samithi Activity</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Article-List.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Footer-Basic.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Lightbox-Gallery.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Login-Form-Dark.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Projects-Horizontal.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Responsive-Form-1.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Responsive-Form.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+</head>
+
+<body>
+
+<nav class="navbar navbar-light navbar-expand-md" style="background: var(--bs-gray-300);">
+        <div class="container"><a class="navbar-brand" href="#"><strong>SERVICE ACTIVITY REPORT</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'himayathnagar' %}">Samithi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table">
+
+                        <tbody>
+                            {% for report in  all_reports %}
+                            <tr>
+                                <td style="width: 200px;">Name of the Activity :</td>
+                                <td>{{report.name_of_the_activity}}</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 200px;">Date of the Activity :</td>
+                                <td>{{report.date_of_activity}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Samithi :</strong></td>
+                                <td>{{report.samithi}}</td>
+                            </tr>
+                            <tr>
+                                <td>Place of the Activity :</td>
+                                <td>{{report.place}}</td>
+                            </tr>
+                            <tr>
+                                <td>Activity begin Time :</td>
+                                <td>{{report.from_time}}</td>
+                            </tr>
+                            <tr>
+                                <td>Activity end Time :</td>
+                                <td>{{report.to_time}}</td>
+                            </tr>
+                            <tr>
+                                <td>Spiritual Activities :</td>
+                               <td>{{report.spiritual_activity}}</td>
+                            </tr>
+                            <tr>
+                                <td>Educational Activities :</td>
+                               <td>{{report.educational_activity}}</td>
+                            </tr>
+                            <tr>
+                                <td>Service Activities :</td>
+                               <td>{{report.service_activity}}</td>
+                            </tr>
+                            <tr>
+                                <td>Brief Write up on Program :</td>
+                                <td>{{report.write_up | safe}}</td>
+                            </tr>
+                            <tr>
+                                <td>Number of hours :</td>
+                               <td>{{report.hours}}</td>
+                            </tr>
+
+                            <tr>
+                                 <td>Activity Photos :</td>
+                                <td>
+          <!-- Start: Photos -->
+            <div class="row photos" data-bss-baguettebox="">
+                {% if report.pahoto1 %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{report.pahoto1.url}}"><img class="img-fluid" src="{{report.pahoto1.url}}" style="height: 200px; width:300px; border: 5px solid #555; "></a></div>
+                {% endif %}
+                {% if report.pahoto2 %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{report.pahoto2.url}}"><img class="img-fluid" src="{{report.pahoto2.url}}" style="height: 200px; width:300px; border: 5px solid #555; "></a></div>
+                {% endif %}
+                {% if report.pahoto3 %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{report.pahoto3.url}}"><img class="img-fluid" src="{{report.pahoto3.url}}" style="height: 200px; width:300px;  border: 5px solid #555;"></a></div>
+                 {% endif %}
+                {% if report.pahoto4 %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item" style="margin-bottom:25px"><a href="{{report.pahoto4.url}}"><img class="img-fluid" src="{{report.pahoto4.url}}"style="height: 200px; width:300px;  border: 5px solid #555;"></a></div>
+                 {% endif %}
+                {% if report.pahoto5 %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{report.pahoto5.url}}"><img class="img-fluid" src="{{report.pahoto5.url}}"style="height: 200px; width:300px;  border: 5px solid #555;" ></a></div>
+                 {% endif %}
+                {% if report.pahoto6 %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{report.pahoto6.url}}"><img class="img-fluid" src="{{report.pahoto6.url}}"style="height: 200px; width:300px;  border: 5px solid #555;" ></a></div>
+                 {% endif %}
+                {% if report.pahoto7 %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{report.pahoto7.url}}"><img class="img-fluid" src="{{report.pahoto7.url}}"style="height: 200px; width:300px; border: 5px solid #555; " ></a></div>
+                 {% endif %}
+                {% if report.pahoto8 %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{report.pahoto8.url}}"><img class="img-fluid" src="{{report.pahoto8.url}}" style="height: 200px; width:300px; border: 5px solid #555; "></a></div>
+                {% endif %}
+
+
+            </div><!-- End: Photos -->
+
+                                </div>
+
+                                </td>
+                            </tr>
+
+                              <tr>
+                                <td style="width: 200px;">Submitted by :</td>
+                               <td>{{report.submitted_by}}</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile Number :</td>
+                                <td>{{report.mobile}}</td>
+                            </tr>
+                            <tr>
+                                <td>Email :</td>
+                                <td>{{report.email}}</td>
+                            </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+<!--    <footer class="footer-basic">-->
+<!--        &lt;!&ndash; Start: Social Icons &ndash;&gt;-->
+<!--        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>&lt;!&ndash; End: Social Icons &ndash;&gt;-->
+<!--        &lt;!&ndash; Start: Copyright &ndash;&gt;-->
+<!--        <p class="copyright">sivamcelebrations.org © 2021</p>&lt;!&ndash; End: Copyright &ndash;&gt;-->
+<!--    </footer>&lt;!&ndash; End: Footer Basic &ndash;&gt;-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+
+    <script src="{% static 'assets/js/Lightbox-Gallery.js' %}"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

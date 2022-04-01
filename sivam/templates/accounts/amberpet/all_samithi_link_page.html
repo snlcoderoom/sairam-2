@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+{% block content %}
+
+
+    <div class="container" >
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center"><img class="img-fluid shadow" src="{% static 'assets/img/29.jpg' %}" width="10%" style="margin-top: 50PX;margin-bottom: 50PX;border-radius: 5px;border-style: solid;border-color: rgb(209,216,223);min-width: 100px;"></h1>
+
+            </div>
+        </div>
+    </div>
+    <section class="article-list">
+            <div class="container">`
+                <div class="intro">
+                    <h4 class="text-center"; style="color:#0d6efd" > SAMITHIS OF SRI SATHYA SAI SEVA ORGANISATIONS, HYDERABAD</h4>
+
+                </div>
+                <div class="row articles">
+                    {% for samithi in about_samithi %}
+                    <div class="col-sm-12 col-md-3 item "><a href="{% url 'as_display_page' samithi.id %}"><img class="img-fluid shadow p-3 mb-5 bg-white rounded" src="{{samithi.main_img.url }}"  style="height: 200px; width:300px; " ></a>
+                        <h3 class="name " style="color:#0d6efd;margin-top:0">{{samithi.title}}</h3>
+
+                    </div>
+                   {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        </div>
+
+    </div>
+{% endblock %}

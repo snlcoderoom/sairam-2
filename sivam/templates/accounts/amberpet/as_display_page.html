@@ -1,0 +1,124 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--{% load static %}-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">-->
+<!--    <title>Recent Samithi Activity</title>-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Article-List.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/carousel.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Footer-Basic.css' %}">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Lightbox-Gallery.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Login-Form-Dark.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Projects-Horizontal.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Registration-Form-with-Photo.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Responsive-Form-1.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Responsive-Form.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--<nav class="navbar navbar-light navbar-expand-md" style="background: var(&#45;&#45;bs-gray-300);">-->
+<!--        <div class="container"><a class="navbar-brand" href="#"><strong>SRI SATHYA SAI SEVA ORGANISATIONS, {{about_samithi.title}}</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>-->
+<!--            <div class="collapse navbar-collapse" id="navcol-1">-->
+<!--                <ul class="navbar-nav ms-auto">-->
+<!--                    <li class="nav-item"></li>-->
+<!--                    <li class="nav-item"><a class="nav-link" href="{% url 'all_samithi_link_page' %}">All Samithis</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </nav>-->
+<div class="container-fluid">
+<img src="{{about_samithi.main_img.url}}" class="img-fluid " width="100%" >
+    </div>
+
+<div class="container" style="margin-top:50px">
+        <div class="row">
+            <div class="col">
+
+
+
+                   <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td style="width: 200px;">Name of the Samithi:</td>
+                                <td>{{about_samithi.title}}</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 200px;">About Samithi:</td>
+                                <td>{{about_samithi.about_samithi | safe}}</td>
+                            </tr>
+                             <tr>
+<!--                                 <td>Activity Photos :</td>-->
+                                <td>
+
+                                </div>
+
+                                </td>
+                            </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+<section class="article-list">
+            <div class="container">`
+                <div class="intro">
+                    <h2 class="text-center">Recent Activities</h2>
+<!--                    <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>-->
+                </div>
+                <div class="row articles">
+                    {% for report in recent_reports %}
+                    <div class="col-sm-12 col-md-3 item"><a href="{% url 'as_report_display_page' report.id  %}"><img class="img-fluid shadow p-3 mb-5 bg-white rounded" src="{{report.photo1.url }}"  style="height: 200px; width:300px; " ></a>
+                        <h3 class="name">{{report.wings}}</h3>
+                        <p class="description">{{report.place}}</p><a class="action" href="activity_himayathnagar/{{report.id}}"><i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+
+                   {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+{% endblock %}
+
+
+<!--    <footer class="footer-basic">-->
+<!--        &lt;!&ndash; Start: Social Icons &ndash;&gt;-->
+<!--        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>&lt;!&ndash; End: Social Icons &ndash;&gt;-->
+<!--        &lt;!&ndash; Start: Copyright &ndash;&gt;-->
+<!--        <p class="copyright">sivamcelebrations.org © 2021</p>&lt;!&ndash; End: Copyright &ndash;&gt;-->
+<!--    </footer>&lt;!&ndash; End: Footer Basic &ndash;&gt;-->
+
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>-->
+
+<!--    <script src="{% static 'assets/js/Lightbox-Gallery.js' %}"></script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+

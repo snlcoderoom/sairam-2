@@ -1,0 +1,72 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+</head>
+
+<body >
+<nav class="navbar navbar-light navbar-expand-md shadow">
+        <div class="container"><a class="navbar-brand" href="#">&nbsp; <img src="{% static 'assets/img/sivam-logo.png' %}" width="50px">&nbsp; &nbsp;Samithi Dashboard</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-3">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'as_form' %}">Samithi Form</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'as_form_total_records' %}">Update Samithi</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'as_single_report_form' %}">Samithi Report Form</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'as_total_reports' %}">Update Report </a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'as_ob_form' %}">SOB Form</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'as_ob_total_records' %}">Update SOB</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'as_dashboard'about_samithi.id">Samithi Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'as_login' %}">Logout</a></li><!-- Start: multilevel-drop-down -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="highlight-clean">
+
+              <div class="intro">
+                <h2 class="text-center">{{about_samithi.samithi}}</h2>
+                <p class="text-center">LOVE MUST EXPRESS ITSELF AS SERVICE - BABA</p>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+<!--        {% include 'includes/messages.html' %}-->
+        <div class="row">
+            <div class="col"></div>
+            <div class="col" style="margin-top: 65px;">
+                <h1 class="text-center"><img class="img-fluid" src="{% static 'assets/img/abhaya12.jpg' %}" width="150px" style="border-style: solid;border-color: rgb(85,99,112);box-shadow: 0px 0px 1px 1px;"></h1>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <div class="container">
+    {% if messages %}
+<!--    {% for message in messages %}-->
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<!--        {% endfor %}-->
+        {% endif %}
+
+</div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
+    <script src="{% static 'assets/js/myjs.js' %}"></script>
+</body>
+
+</html>

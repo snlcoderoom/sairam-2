@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center"><img class="img-fluid shadow" src="{% static 'assets/img/29.jpg' %}" width="10%" style="margin-top: 50PX;margin-bottom: 50PX;border-radius: 5px;border-style: solid;border-color: rgb(209,216,223);min-width: 100px;"></h1>
+
+            </div>
+        </div>
+    </div>
+
+<section class="article-list">
+            <div class="container">`
+                <div class="intro">
+                    <h2 class="text-center" style="color:#dc3545">Samithis of Hyderabad District</h2>
+<!--                    <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>-->
+                </div>
+                <div class="row articles">
+                    {% for samithi in about_samithi %}
+                    <div class="col-sm-12 col-md-3 item "><a href="{% url 'as_login' samithi.samithi %}"><img class="img-fluid shadow p-2 mb-5 bg-white rounded" src="{{samithi.main_img.url }}"  style="height: 100px; width:200px; " ></a>
+                        <h3 class="name " style="color:#0d6efd;margin-top:0">{{samithi.title}}</h3>
+
+                    </div>
+                   {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+
+<!--<div class="container">-->
+<!--        <div class="flex-container">-->
+<!--              {% for samithi in about_samithi%}-->
+<!--            <div><a href="{% url 'as_login' %}">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">{{samithi.samithi}} Samithi</h3>-->
+<!--                    </a>-->
+<!--            </div>-->
+<!--                {% endfor %}-->
+<!--        </div>-->
+<!--</div>-->
+
+
+
+
+
+<!--    <div class="container"><a href="#"></a>-->
+<!--        <div class="row">-->
+<!--            <div class="col-sm-12 float-left ">-->
+
+<!--                <div><a href="{% url 'as_login' %}">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">{{about_samithi.samithi}} Samithi</h3>-->
+<!--                    </a>-->
+<!--                     </div>-->
+
+
+<!--                    <a href="#"></a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Ameerpet Samithi</h3>-->
+<!--                    </a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Dilsukhnagar Samithi</h3>-->
+<!--                    </a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Gandhinagar&nbsp; Samithi</h3>-->
+<!--                    </a></div>-->
+
+<!--            <div class="col-sm-12 col-md-3">-->
+<!--                <div><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Himayathnagar Samithi</h3>-->
+<!--                    </a><a href="#"></a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Kachiguda Samithi</h3>-->
+<!--                    </a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Khairtabad Samithi</h3>-->
+<!--                    </a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Koti Samithi</h3>-->
+<!--                    </a></div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-12 col-md-3">-->
+<!--                <div><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Marredpally Samithi</h3>-->
+<!--                    </a><a href="#"></a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Mehdipatnam Samithi</h3>-->
+<!--                    </a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Prasanthinagar Samithii</h3>-->
+<!--                    </a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Sitaphalmandi Samithi</h3>-->
+<!--                    </a></div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-12 col-md-3">-->
+<!--                <div><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">S R Nagar Samithi</h3>-->
+<!--                    </a><a href="#"></a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Tarnaka Samithi</h3>-->
+<!--                    </a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Vengalraonagar&nbsp; Samithi</h3>-->
+<!--                    </a><a href="#">-->
+<!--                        <h3 class="text-center" style="background: var(&#45;&#45;bs-blue);border-radius: 5px;height: 36.5px;width: 200px;margin-right: auto;margin-left: auto;color: rgb(255,255,255);margin-bottom: 15px;font-size: 16px;padding: 8px;">Vidyanagr Samithi</h3>-->
+<!--                    </a></div>-->
+            </div>
+        </div>
+    </div>
+{% endblock %}

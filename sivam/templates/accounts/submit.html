@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Activity Report Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md shadow" style="background: var(--bs-light);">
+        <div class="container"><a class="navbar-brand" href="#"></a><img src="{% static 'assets/img/Logo.png' %}" width="50px"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h4 style="color: rgb(26,130,234);">SRI SATHYA SAI SEVA ORGANISATION,&nbsp;<span>Sivam, Hyderabad</span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}" style="color: var(--bs-blue);">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div>
+            <h2 class="text-center" style="margin-bottom: 32px;margin-top: 32px;"> ACTIVITY REPORT FORM </h2>
+
+<div class="container">
+    {% if messages %}
+<!--    {% for message in messages %}-->
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<!--        {% endfor %}-->
+        {% endif %}
+
+</div>
+
+
+            <form action="" method=POST enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group mb-3" >
+                    <div id="formdiv" style="padding:25px">
+                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
+
+                            {{ form.media }}
+
+                            {{form.as_p}}
+                        </div>
+                        <br/>
+
+                        <div class="col-md-12 text-center">
+                <input type="submit" value="Submit Report"  class="btn btn-primary" >
+
+                    </div>
+
+            </form>
+
+<!--            <form action="submit" method="POST" enctype="multipart/form-data">-->
+<!--                {% csrf_token %}-->
+<!--                <div class="form-group mb-3">-->
+<!--                    <div id="formdiv">-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Activity Name</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" style="font-family:Roboto, sans-serif;" name="aname" type="text"></div>-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Date</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" style="font-family:Roboto, sans-serif;" name="date" type="date"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                                        <div class="col-md-8 offset-md-1">-->
+<!--                                            <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Samithi</strong></p>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="col-md-10 offset-md-1"><select class="form-select" type="text" name="samithi">-->
+<!--                                                <optgroup label="Samithi">-->
+<!--                                                    <option value="Ameerpet" >Ameerpet</option>-->
+<!--                                                    <option value="Amberpet">Amberpet</option>-->
+<!--                                                    <option value="Dilsukhnagar">Dilsukhnagar</option>-->
+<!--                                                    <option value="Gandhinagar">Gandhinagar</option>-->
+<!--                                                    <option value="Himayathnagar">Himayathnagar</option>-->
+<!--                                                    <option value="Kachiguda">Kachiguda</option>-->
+<!--                                                    <option value="Khairtabad">Khairtabad</option>-->
+<!--                                                    <option value="Koti">Koti</option>-->
+<!--                                                    <option value="Mehdipatnam">Mehdipatnam</option>-->
+<!--                                                    <option value="Marredpally">Marredpally</option>-->
+<!--                                                    <option value="Prasanthi Nagar">Prasanthi Nagar</option>-->
+<!--                                                    <option value="Seethaphalmandi">Seethaphalmandi</option>-->
+<!--                                                    <option value="S R Nagar">S R Nagar</option>-->
+<!--                                                    <option value="Tarnaka">Tarnaka</option>-->
+<!--                                                    <option value="Vengal Rao Nagar">Vengal Rao Nagar</option>-->
+<!--                                                    <option value="Vidya Nagar">Vidya Nagar</option>-->
+<!--                                                </optgroup>-->
+<!--                                            </select></div>-->
+<!--                                    </div>-->
+
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;margin-top:-16px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Place</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="text" name="place" placeholder="place"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>From Time</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="datetime-local" name="from_time"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>To Time</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1" style="font-family:Roboto, sans-serif;"><input class="form-control" type="datetime-local" name="to_time"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Wings</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><select class="form-select"  type="text" name="wing">-->
+<!--                                    <option value="SPIRITUAL ACTIVITY">Spiritual</option>-->
+<!--                                    <option value="EDUCATIONAL ACTIVITY">Educational</option>-->
+<!--                                    <option value="SERVICE ACTIVITY">Service</option>-->
+<!--                                    <option value="None">None</option>-->
+<!--                                </select></div>-->
+<!--                        </div>-->
+
+<!--                                <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                                    <div class="col-md-8 offset-md-1">-->
+<!--                                        <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Spiritual Activity</strong></p>-->
+<!--                                    </div>-->
+
+
+
+<!--                                    <div class="col-md-10 offset-md-1"><select class="form-select" type="text" name="spiritual" >-->
+<!--                                            <optgroup label="Spiritual Activity">-->
+<!--                                                <option value="Bhajans" selected="">Bhajans</option>-->
+<!--                                                <option value="Nagara Sankeertan" selected="">Nagara Sankeertan</option>-->
+<!--                                                 <option value="None" selected="">None</option>-->
+<!--                                                <option value="Stydy Circle">Study circles</option>-->
+<!--                                                <option value="Naamsmarana">Naamsmarana</option>-->
+<!--                                                <option value="Puja">Puja</option>-->
+<!--                                                <option value="Japa and Meditation">Japa and Meditation</option>-->
+<!--                                                <option value="Spiritual Calss">Spiritual class or lectures</option>-->
+<!--                                                <option value="Seminar">Seminars</option>-->
+<!--                                                <option value="Sadhana Camps">Sadhana Camps</option>-->
+<!--                                            </optgroup>-->
+<!--                                        </select></div>-->
+<!--                                </div>-->
+<!--                                <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                                   <div class="col-md-8 offset-md-1">-->
+<!--                                       <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Educational Activity</strong></p>-->
+<!--                                   </div>-->
+<!--                                   <div class="col-md-10 offset-md-1"><select class="form-select" type="text" name="educational">-->
+<!--                                           <optgroup label="Educational Activity">-->
+<!--                                                <option value="Balvikas" selected="">Balvikas</option>-->
+<!--                                                <option value="Gems Program" selected="">Gems Program</option>-->
+<!--                                               <option value="None" selected="">None</option>-->
+<!--                                                <option value="Good Parenting">Good Parenting</option>-->
+<!--                                           </optgroup>-->
+<!--                                       </select></div>-->
+<!--                               </div>-->
+<!--                               <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                                       <div class="col-md-8 offset-md-1">-->
+<!--                                           <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Service Activity</strong></p>-->
+<!--                                       </div>-->
+<!--                                       <div class="col-md-10 offset-md-1"><select class="form-select" type="text" name="service">-->
+<!--                                               <optgroup label="Service Activity">-->
+<!--                                                   <option value="Narayan seva" selected="">Narayan seva</option>-->
+<!--                                                   <option value="None" selected="">None</option>-->
+<!--                                                   <option value=">Medical Camp">Medical Camp</option>-->
+<!--                                                   <option value="Veterinary Camp">Veterinary Camp</option>-->
+<!--                                                   <option value="Educational Assistance">Educational Assistance</option>-->
+<!--                                                   <option value="Vocational - Skill Development Training Program">Vocational - Skill Development Training Program</option>-->
+<!--                                                   <option value="Hospital Seva ">Hospital Seva </option>-->
+<!--                                                   <option value="Old Age Home Seva">Old Age Home Seva</option>-->
+<!--                                                   <option value="Orphanage Seva">Orphanage Seva</option>-->
+<!--                                                   <option value="Grama Seva">Gram seva </option>-->
+<!--                                                   <option value="providing Relief">Providing relief during natural calamities or accidents</option>-->
+<!--                                               </optgroup>-->
+<!--                                           </select></div>-->
+<!--                                   </div>-->
+
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Brief Write up on program</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><textarea class="form-control" name="writeup"></textarea></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Number of hours</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="number" name="hours"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Photo 1</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="file" name="photo1"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Photo 2</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="file" name="photo2"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Photo 3</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="file" name="photo3"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Photo 4</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="file" name="photo4"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Photo 5</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="file" name="photo5"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Photo 6</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="file" name="photo6"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Photo 7</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="file" name="photo7"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Photo 8</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="file" name="photo8"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Submitted by</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="text" name="sevadal"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Mobile Number</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="number" name="mobile"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-md-8 offset-md-1">-->
+<!--                                <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Email</strong></p>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-10 offset-md-1"><input class="form-control" type="email" name="email"></div>-->
+<!--                        </div>-->
+<!--                        <div class="row" style="margin-right:0px;margin-left:0px;padding-top:24px;">-->
+<!--                            <div class="col-12 col-md-4 offset-md-4"><button class="btn btn-light btn-lg" style="font-family:Roboto, sans-serif;" type="reset">Clear </button><button class="btn btn-light btn-lg" style="margin-left:16px;" type="submit">Submit </button></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--            -->
+
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
+</body>
+
+</html>

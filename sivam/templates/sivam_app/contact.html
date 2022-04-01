@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+{% load static %}
+
+
+    <div class="container" id="cont-container" style="margin-top: 36px; background-color:#9a616d ; padding:30px">
+        <div class="row" style="margin-top: 0px;margin-left: 0px;">
+            <div class="col" style="margin-top: 0px;">
+
+                <div class="row" style="margin-top: 0px;">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4" style="border-radius: 7px;border: 5px none rgb(80,117,39) ;">
+
+                      {% include 'includes/messages.html' %}
+                        <h1 class="text-uppercase" style="font-family: Raleway;font-weight: 400px;font-size: 32px;margin-top: 0px;margin-bottom: 20px;text-align: center;color: white;">contact form</h1>
+                        <form action="{% url 'contact' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group mb-3"><input class="shadow-sm form-control" type="text" name="name" placeholder="Name" required="" style="background: rgb(255,255,255);"></div>
+                            <div class="form-group mb-3"><input class="shadow-sm form-control" type="email" name="email" placeholder="Email" required="" style="background: rgb(255,255,255);"></div>
+                            <div class="form-group mb-3"><input class="shadow-sm form-control" type="tel" name="mobile" placeholder="Mobile No" required="" style="background: rgb(255,255,255);"></div>
+                            <div class="form-group mb-3"><input class="shadow-sm form-control" type="text" name="subject" placeholder="Subject" required="" style="background: rgb(255,255,255);"></div>
+                            <div class="form-group mb-3"><textarea class="shadow-sm form-control" name="write_up" placeholder="Type your message"  required=""  style="background: rgb(255,255,255);"></textarea></div>
+                            <div style="font-family: Releway;" class="form-group mb-3">
+                                <h1 style="text-align: right;margin-top: 0px;"><button class="btn" id="button" type="submit" style="font-family: Raleway;color: rgb(253,254,255);box-shadow: 1px 1px 2px 1px rgb(9,14,18);border-width: 2px;border-style: solid;background: #9a616d;">Submit</button></h1>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4"></div>
+
+
+                   <div class="row" style="margin-top: 0px;">
+                    <div class="col-md-2"></div>
+
+                               <div class="col-md-8">
+                    <h1 class="text-uppercase" style="font-family: Raleway;font-weight: 400px;font-size: 32px;margin-top: 0px;margin-top: 32px; margin-bottom: 20px;text-align: center;color: white;">OFFICE BEARERS</h1>
+                    <div class="table-responsive" >
+                        <table class="table" style="color:white">
+                            <thead>
+                                <tr>
+                                    <th>Sl.No</th>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                    <th>Mobile</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for ob in sob %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{ob.name}}<br></td>
+                                    <td>{{ob.designation}}</td>
+                                    <td>{{ob.mobile}}<br></td>
+                                    <td>{{ob.email}}<br></td>
+                                    <td>{{ob.address}}<br></td>
+                                </tr>
+                            {% endfor %}
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                                   <div class="col-md-2"></div>
+                </div>
+
+
+
+
+                          <div class="col-md-4"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+

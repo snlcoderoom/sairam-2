@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <div class="container-fluid">
+        {% for about in sivam_history %}
+    <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="carousel-1">
+        <div class="carousel-inner">
+            <div class="carousel-item active"><img class="img-fluid w-100 d-block" src="{{about.sivam_img.url}}"></div>
+        </div>
+        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
+    </div>
+
+    <div class="row" style="margin-top: 29px;">
+                <div class="col">
+                    <h3 class="text-center" style="color: rgb(49,52,55);margin-bottom: 30px;"><strong>{{about.title}}</strong><br></h3>
+                    <div class="container"> <p class="text-center" style="text-align: justify;">{{about.history | safe}}<br></p></div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
+{% endblock %}
+
+
+
+
+
+
+

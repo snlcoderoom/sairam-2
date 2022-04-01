@@ -1,0 +1,26 @@
+{% load static %}
+
+<nav class="navbar navbar-light navbar-expand-md shadow" style="background: var(--bs-light);">
+        <div class="container"><a class="navbar-brand" href="#"></a><img src="{% static 'assets/img/Logo.png' %}" width="50px"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h4 style="color: rgb(26,130,234);">SRI SATHYA SAI SEVA ORGANISATIONS,&nbsp;<span>SIVAM, HYDERABAD</span></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}" style="color: var(--bs-blue);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'sivam' %}" style="color: var(--bs-blue);">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'all_samithi_link_page' %}" style="color: var(--bs-blue);">Samithis</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}" style="color: var(--bs-blue);">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}" style="color: var(--bs-blue);">Samithi Login</a></li>
+<!--                    <li class="nav-item"><a class="nav-link" href="{% url 'samithis_sign_up' %}" style="color: var(&#45;&#45;bs-blue);">Samithi Sign Up</a></li>-->
+                    <li class="nav-item"><a class="nav-link" href="{% url 'sivam_login' %}" style="color: var(--bs-blue);">Sivam Login</a></li>
+<!--                    <li class="nav-item"><a class="nav-link" href="{% url 'sivam_signup' %}" style="color: var(&#45;&#45;bs-blue);">Sivam Sign Up</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>

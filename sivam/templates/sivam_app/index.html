@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+{% load static %}
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            {% for object in carousel%}
+            <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+                <img src="{{object.image.url}}" style="height:650px;" class="testi-overly d-block w-100" alt="sliderImg">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="animate__animated
+                    {% if forloop.counter0 == 0 %}
+                    animate__fadeInDown
+                    {% endif %}
+                    {% if forloop.revcounter == 1 %}
+                    animate__bounce
+                    {% endif %}
+                    {% if forloop.revcounter == 2 %}
+                    animate__fadeInRight
+                    {% endif %}">{{object.title}}</h1>
+                    <h3 class="animate__animated animate__zoomIn">{{object.sub_title}}</h3>
+                    <a href="{{object.link}}" class="button animate__animated animate__zoomIn mt-3 py-3 px-5 btn font-weight-bold">{{object.action_name}}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    <section class="projects-horizontal">
+        {% for page in fpage %}
+        <div class="container">
+            <div class="row" style="margin-top: 29px;">
+                <div class="col">
+                    <h3 class="text-center " style="color: #dc3545;margin-bottom: 30px;"><strong>About the Organisation</strong><br></h3>
+                    <p class="text-center" style="text-align: justify;">{{page.about_sivam |safe}}<br></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3 class="text-center " style="color: #dc3545;margin-bottom: 30px;"><strong>The Wings of the&nbsp;Organisation</strong><br></h3>
+                    <p class="text-center  " style="text-align: justify;">{{page.wings | safe}}<br></p>
+                </div>
+            </div>
+            <div class="row projects">
+                <div class="col-sm-4 item">
+                    <div class="row">
+                        {% if page.s_photo1 %}
+                        <div class="col-md-12 col-lg-5"><a href="{% url 'spw_display_page' %}"><img class="img-fluid shadow p-3 mb-5 bg-white rounded" src="{{page.s_photo1.url}}"></a></div>
+                        {% endif %}
+                        <div class="col">
+                            <h3 class="name">{{page.sw_heading}}</h3>
+                            <p class="description">{{page.sw_para}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 item">
+                    <div class="row">
+                         {% if page.e_photo2 %}
+                        <div class="col-md-12 col-lg-5"><a href="{% url 'ew_display_page' %}"><img class="img-fluid shadow p-3 mb-5 bg-white rounded" src="{{page.e_photo2.url}}" ></a></div>
+                        {% endif %}
+                        <div class="col">
+                            <h3 class="name">{{page.ew_heading}}</h3>
+                            <p class="description">{{page.ew_para}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 item">
+                    <div class="row">
+                        {% if page.s_photo1 %}
+                        <div class="col-md-12 col-lg-5"><a href="{% url 'srw_display_page' %}"><img class="img-fluid shadow p-3 mb-5 bg-white rounded" src="{{page.s_photo1.url}}"></a></div>
+                        {% endif %}
+                        <div class="col">
+                            <h3 class="name">{{page.swg_heading}}<br></h3>
+                            <p class="description">{{page.swg_para}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </section>
+
+
+
+
+
+<section class="article-list">
+            <div class="container">`
+                <div class="intro">
+                    <h2 class="text-center" style="color:#dc3545">Samithis of Hyderabad District</h2>
+<!--                    <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>-->
+                </div>
+                <div class="row articles">
+                    {% for samithi in about_samithi %}
+                    <div class="col-sm-12 col-md-3 item "><a href="{% url 'as_display_page' samithi.id %}"><img class="img-fluid shadow p-3 mb-5 bg-white rounded" src="{{samithi.main_img.url }}"  style="height: 200px; width:300px; " ></a>
+                        <h3 class="name " style="color:#0d6efd;margin-top:0">{{samithi.title}}</h3>
+
+                    </div>
+                   {% endfor %}
+                </div>
+            </div>
+        </section>
+
+    <section class="article-list">
+            <div class="container">`
+                <div class="intro">
+                    <h2 class="text-center" style="color:#dc3545">Recent Events in Sivam</h2>
+<!--                    <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>-->
+                </div>
+                <div class="row articles">
+                    {% for report in  events %}
+                    <div class="col-sm-12 col-md-3 item"><a href="{% url 'sivam_event_page' report.id %}"><img class="img-fluid shadow p-3 mb-5 bg-white rounded" src="{{report.photo1.url }}"  style="height: 200px; width:300px; " ></a>
+                        <h3 class="name" style="margin-top:0">{{report.name_of_the_activity}}</h3>
+                        <h3 class="name" style="margin-top:0">{{report.date_of_activity}}</h3>
+
+
+                    </div>
+                   {% endfor %}
+                </div>
+            </div>
+        </section>
+    </section>
+{% endblock %}

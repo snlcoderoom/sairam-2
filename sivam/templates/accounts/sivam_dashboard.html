@@ -1,0 +1,92 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+</head>
+
+<body >
+<nav class="navbar navbar-light navbar-expand-md shadow">
+        <div class="container"><a class="navbar-brand" href="#">&nbsp; <img src="{% static 'assets/img/sivam-logo.png' %}" width="50px">&nbsp; &nbsp;Sivam Dashboard</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-3">
+                <ul class="navbar-nav ms-auto">
+<!--                    <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}">Home</a></li>-->
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'sivam_events_form' %}">Sivam Event Form</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'sivam_events_page' %}">Update Sivam Event</a></li><!-- Start: multilevel-drop-down -->
+                    <li class="nav-item dropdown multilevel mt-5 mb-4" style="color: rgb(0,122,61);"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="margin-top: -48px;color: rgb(0,122,61);">More Forms</a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="{% url 'landing_page_form' %}" style="color: rgb(0,122,61);">Sivam Form</a>
+                            <a class="dropdown-item" href="{% url 'landing_page_report' %}" style="color: rgb(0,122,61);">Update Sivam&nbsp;</a>
+                            <a class="dropdown-item" href="{% url 'sivam_ob_form' %}" style="color: rgb(0,122,61);">SOB Form</a>
+                            <a class="dropdown-item" href="{% url 'sivam_ob_reports' %}" style="color: rgb(0,122,61);">Update SOB&nbsp;</a>
+                            <a class="dropdown-item" href="{% url 'sivam_history_form' %}" style="color: rgb(0,122,61);">Sivam History Form</a>
+                            <a class="dropdown-item" href="{% url 'sivam_history_records' %}" style="color: rgb(0,122,61);">Update Sivam History</a>
+                            <a class="dropdown-item" href="{% url 'spiritual_wing_form' %}" style="color: rgb(0,122,61);">Spiritual Wing Form</a>
+                            <a class="dropdown-item" href="{% url 'spw_records' %}" style="color: rgb(0,122,61);">Update Spiritual Wing</a>
+                            <a class="dropdown-item" href="{% url 'ew_form' %}" style="color: rgb(0,122,61);">Educational Wing Form</a>
+                            <a class="dropdown-item" href="{% url 'ew_records' %}" style="color: rgb(0,122,61);">Update Educational Wing&nbsp;</a>
+                            <a class="dropdown-item" href="{% url 'srw_form' %}" style="color: rgb(0,122,61);">Service Wing Form&nbsp;</a>
+                            <a class="dropdown-item" href="{% url 'srw_records' %}" style="color: rgb(0,122,61);">Update Service Wing</a></div>
+                    </li><!-- End: multilevel-drop-down -->
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'sivam_login' %}">Logout</a></li><!-- Start: multilevel-drop-down -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="highlight-clean">
+
+              <div class="intro">
+                <h2 class="text-center">OM SRI SAI RAM</h2>
+                <p class="text-center">LOVE MUST EXPRESS ITSELF AS SERVICE - BABA</p>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+<!--        {% include 'includes/messages.html' %}-->
+        <div class="row">
+            <div class="col"></div>
+            <div class="col" style="margin-top: 65px;">
+                <h1 class="text-center"><img class="img-fluid" src="{% static 'assets/img/abhaya12.jpg' %}" width="150px" style="border-style: solid;border-color: rgb(85,99,112);box-shadow: 0px 0px 1px 1px;"></h1>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <div class="container">
+    {% if messages %}
+<!--    {% for message in messages %}-->
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<!--        {% endfor %}-->
+        {% endif %}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
+    <script src="{% static 'assets/js/myjs.js' %}"></script>
+</body>
+
+</html>
